@@ -1,6 +1,6 @@
 from sys import argv
 from os import walk
-from os.path import isdir, isfile, join
+from os.path import isdir, isfile, isabs, join, abspath
 
 
 patterns = {"\\lambda" : u"\u03bb", "\\theta" : u"\u03f4"}
@@ -17,13 +17,16 @@ def refactor_file(filename):
     with open(filename, "w") as curfile:
         curfile.write(data)
 
-if len(argv) is not 3:
+if len(argv) is not 2:
     raise ArgumentError("Please use command: python Script.py [file or directory]")
 
-if isfile(argv[2]):
-    refactor_file(argv[2])
-elif isdir(argv[2]):
-    for root, dirs, files in walk(argv[2]):
+if isfile(argv[1]):
+    refactor_file(argv[1])
+elif isdir(argv[1]):
+    dir = argv[1]
+    if not isabs(dir):
+        dir = abspath(dir)
+    for root, dirs, files in walk(dir):
         for filename in files:
             curfile = join(root, filename)
             refactor_file(curfile)
