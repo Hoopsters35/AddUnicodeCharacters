@@ -13,7 +13,7 @@ def refactor_file(filename):
     with open(filename, 'r') as curfile:
         data = curfile.read()
     for pattern in patterns:
-        data.replace(pattern, patterns[pattern])
+        data = data.replace(pattern, patterns[pattern])
     with open(filename, "w") as curfile:
         curfile.write(data)
 
