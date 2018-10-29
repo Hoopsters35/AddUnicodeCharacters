@@ -10,12 +10,15 @@ class ArgumentError(Exception):
 
 def refactor_file(filename):
     print(f'Refactoring {filename}')
-    with open(filename, 'r') as curfile:
-        data = curfile.read()
-    for pattern in patterns:
-        data = data.replace(pattern, patterns[pattern])
-    with open(filename, "w") as curfile:
-        curfile.write(data)
+	try:
+    	with open(filename, 'r') as curfile:
+        	data = curfile.read()
+    	for pattern in patterns:
+        	data = data.replace(pattern, patterns[pattern])
+    	with open(filename, "w") as curfile:
+        	curfile.write(data)
+	except:
+		print(f'Error occured while opening {filename}')
 
 if len(argv) is not 2:
     raise ArgumentError("Please use command: python Script.py [file or directory]")
