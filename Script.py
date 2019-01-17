@@ -3,7 +3,7 @@ from os import walk
 from os.path import isdir, isfile, isabs, join, abspath
 
 
-patterns = {"\\lambda" : u"\u03bb", "\\theta" : u"\u03f4", "\\pi" : u"\u03c0", "\\mu" : u"\u03bc", "\\sigma" : u"\u03c3", "\\alpha" : u"\u03b1", "\\beta" : u"\u03b2", "\\Gamma" : u"\u0393", "\inf" : u"\u221e", "\\chi" : u"\u03c7", "\\Phi" : u"\u03d5", "\\rho" : u"\u03c1", "\\eps" : u"\u03f5", "\\delta" : u"\u0394"}
+patterns = {"\\lambda" : u"\u03bb", "\\theta" : u"\u03f4", "\\pi" : u"\u03c0", "\\mu" : u"\u03bc", "\\sigma" : u"\u03c3", "\\alpha" : u"\u03b1", "\\beta" : u"\u03b2", "\\Gamma" : u"\u0393", "\inf" : u"\u221e", "\\chi" : u"\u03c7", "\\Phi" : u"\u03d5", "\\rho" : u"\u03c1", "\\eps" : u"\u03f5", "\\delta" : u"\u0394", "\\Pi" : u"\ucea0"}
 class ArgumentError(Exception):
     pass
 
